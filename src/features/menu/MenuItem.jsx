@@ -1,5 +1,9 @@
-function MenuItem({ pizza }) {
-  const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
+import PropTypes from 'prop-types';
+
+import { formatCurrency } from '../../utils/helpers';
+
+const MenuItem = ({ pizza }) => {
+  const { name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
 
   return (
     <li>
@@ -13,6 +17,17 @@ function MenuItem({ pizza }) {
       </div>
     </li>
   );
-}
+};
+
+MenuItem.propTypes = {
+  pizza: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    unitPrice: PropTypes.number,
+    imageUrl: PropTypes.string,
+    soldOut: PropTypes.bool,
+    ingredients: PropTypes.arrayOf(PropTypes.number),
+  }),
+};
 
 export default MenuItem;
