@@ -26,7 +26,7 @@ MenuItem.propTypes = {
     unitPrice: PropTypes.number,
     imageUrl: PropTypes.string,
     soldOut: PropTypes.bool,
-    ingredients: PropTypes.arrayOf(PropTypes.number),
+    ingredients: PropTypes.arrayOf(PropTypes.string),
   }),
 };
 
