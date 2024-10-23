@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import Home from './UI/Home.jsx';
+// import Error from './UI/Error.jsx';
 import Menu from './features/menu/Menu.jsx';
 import Cart from './features/cart/Cart.jsx';
 import CreateOrder from './features/order/CreateOrder.jsx';
