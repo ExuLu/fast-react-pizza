@@ -6,6 +6,7 @@ import Menu from './features/menu/Menu.jsx';
 import { loader as menuLoader } from './features/menu/menuLoader.js';
 import Cart from './features/cart/Cart.jsx';
 import CreateOrder from './features/order/CreateOrder.jsx';
+import { action as createOrderAction } from './features/order/createOrderAction.js';
 import Order from './features/order/Order.jsx';
 import { loader as orderLoader } from './features/order/orderLoader.js';
 import AppLayout from './UI/AppLayout.jsx';
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
       {
         path: '/order/new',
         element: <CreateOrder />,
+        action: createOrderAction,
       },
       {
         path: '/order/:orderId',
