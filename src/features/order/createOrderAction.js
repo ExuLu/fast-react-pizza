@@ -1,5 +1,6 @@
 import { redirect } from 'react-router-dom';
 import { createOrder } from '../../services/apiRestaurant';
+import { isValidPhone } from '../../utils/helpers';
 
 export const action = async ({ request }) => {
   const formData = await request.formData();
@@ -11,9 +12,14 @@ export const action = async ({ request }) => {
     priority: data.priority === 'on',
   };
 
-  const newOrder = await createOrder(order);
+  const errors = {};
+  if (!isValidPhone(order.phone))
+    errors.phone =
+      'Please give us your correct phone number. We might need it to contact you';
 
-  console.log(newOrder);
+  if (Object.keys(errors).length > 0) return errors;
+
+  const newOrder = await createOrder(order);
 
   return redirect(`/order/${newOrder.id}`);
 };

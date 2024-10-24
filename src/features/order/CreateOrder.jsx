@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Form, useNavigation } from 'react-router-dom';
+import { Form, useActionData, useNavigation } from 'react-router-dom';
 
 const fakeCart = [
   {
@@ -28,6 +28,7 @@ const fakeCart = [
 const CreateOrder = () => {
   const navigation = useNavigation();
   // const [withPriority, setWithPriority] = useState(false);
+  const formErrors = useActionData();
 
   const isLoading = navigation.state === 'loading';
   const cart = fakeCart;
@@ -47,6 +48,7 @@ const CreateOrder = () => {
           <div>
             <input type='tel' name='phone' required />
           </div>
+          {formErrors?.phone && <p>{formErrors.phone}</p>}
         </div>
 
         <div>
