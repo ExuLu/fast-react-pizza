@@ -1,3 +1,4 @@
+import { redirect } from 'react-router-dom';
 import { createOrder } from '../../services/apiRestaurant';
 
 export const action = async ({ request }) => {
@@ -14,5 +15,5 @@ export const action = async ({ request }) => {
 
   console.log(newOrder);
 
-  return null;
+  return redirect(`/order/${newOrder.id}`);
 };
