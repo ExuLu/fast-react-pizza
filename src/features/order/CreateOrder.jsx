@@ -71,6 +71,7 @@ const CreateOrder = () => {
         </div>
 
         <div>
+          <input type='hidden' name='cart' value={JSON.stringify(cart)} />
           <button>Order now</button>
         </div>
       </Form>
