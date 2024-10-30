@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function CreateUser() {
+const CreateUser = () => {
   const [username, setUsername] = useState('');
 
   function handleSubmit(e) {
@@ -9,11 +9,11 @@ function CreateUser() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <p>👋 Welcome! Please start by telling us your name:</p>
+      <p className='mb-2'>👋 Welcome! Please start by telling us your name:</p>
 
       <input
-        type="text"
-        placeholder="Your full name"
+        type='text'
+        placeholder='Your full name'
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
@@ -25,6 +25,6 @@ function CreateUser() {
       )}
     </form>
   );
-}
+};
 
 export default CreateUser;
