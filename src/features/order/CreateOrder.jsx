@@ -73,7 +73,7 @@ const CreateOrder = () => {
 
         <div>
           <input type='hidden' name='cart' value={JSON.stringify(cart)} />
-          <Button isDisabled={isLoading}>
+          <Button type='primary' isDisabled={isLoading}>
             {isLoading ? 'Placing order...' : 'Order now'}
           </Button>
         </div>

@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 
+import Button from '../../UI/Button.jsx';
+
 import { formatCurrency } from '../../utils/helpers';
 
 const MenuItem = ({ pizza }) => {
@@ -12,13 +14,13 @@ const MenuItem = ({ pizza }) => {
         alt={name}
         className={`h-24 ${soldOut ? 'grayscale-70 opacity-70' : ''}`}
       />
-      <div className='flex flex-col'>
+      <div className='flex flex-grow flex-col pt-0.5'>
         <p className='font-medium'>{name}</p>
         <p className='text-sm capitalize italic text-stone-500'>
           {ingredients.join(', ')}
         </p>
 
-        <div className='mt-auto'>
+        <div className='mt-auto flex items-center justify-between'>
           {!soldOut ? (
             <p className='text-sm'>{formatCurrency(unitPrice)}</p>
           ) : (
@@ -26,6 +28,8 @@ const MenuItem = ({ pizza }) => {
               Sold out
             </p>
           )}
+
+          <Button type='small'>Add to cart</Button>
         </div>
       </div>
     </li>
