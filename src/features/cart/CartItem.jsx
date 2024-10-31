@@ -1,4 +1,4 @@
-import PropTypes, { symbol } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import { formatCurrency } from '../../utils/helpers';
 import Button from '../../UI/Button';
