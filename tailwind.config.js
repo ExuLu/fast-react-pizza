@@ -10,6 +10,9 @@ export default {
       height: {
         screen: '100dvh',
       },
+      grayscale: {
+        70: '70%',
+      },
     },
   },
   plugins: [],
