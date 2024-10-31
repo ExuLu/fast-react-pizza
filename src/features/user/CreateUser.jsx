@@ -19,7 +19,7 @@ const CreateUser = () => {
         placeholder='Your full name'
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        className='w-72 px-2'
+        className='input mb-8 w-72'
       />
 
       {username !== '' && (
