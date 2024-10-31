@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const LinkButton = (children, to) => (
+const LinkButton = ({ children, to }) => (
   <Link
     className='text-sm text-blue-500 hover:text-blue-600 hover:underline'
     to={to}
@@ -11,7 +11,7 @@ const LinkButton = (children, to) => (
 );
 
 LinkButton.propTypes = {
-  children: PropTypes.element || PropTypes.string,
+  children: PropTypes.string || PropTypes.element,
   to: PropTypes.string,
 };
 
