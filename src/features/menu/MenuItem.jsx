@@ -11,8 +11,6 @@ const MenuItem = ({ pizza }) => {
   const { pizzaId, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
 
   const handleClick = () => {
-    if (soldOut) return;
-
     const newItem = { pizzaId, name, unitPrice, quantity: 1 };
     dispatch(addItem(newItem));
   };
@@ -39,9 +37,11 @@ const MenuItem = ({ pizza }) => {
             </p>
           )}
 
-          <Button handleClick={handleClick} type='small'>
-            Add to cart
-          </Button>
+          {!soldOut && (
+            <Button handleClick={handleClick} type='small'>
+              Add to cart
+            </Button>
+          )}
         </div>
       </div>
     </li>
