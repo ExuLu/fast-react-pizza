@@ -20,13 +20,15 @@ const Button = ({ children, isDisabled, to, type, handleClick }) => {
     );
 
   if (handleClick) {
-    <button
-      onClick={handleClick}
-      className={styles[type]}
-      disabled={isDisabled}
-    >
-      {children}
-    </button>;
+    return (
+      <button
+        onClick={handleClick}
+        className={styles[type]}
+        disabled={isDisabled}
+      >
+        {children}
+      </button>
+    );
   }
 
   return (

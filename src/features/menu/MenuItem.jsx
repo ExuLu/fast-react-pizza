@@ -8,10 +8,10 @@ import { addItem } from '../cart/cartSlice.js';
 
 const MenuItem = ({ pizza }) => {
   const dispatch = useDispatch();
-  const { pizzaId, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
+  const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
 
   const handleClick = () => {
-    const newItem = { pizzaId, name, unitPrice, quantity: 1 };
+    const newItem = { pizzaId: id, name, unitPrice, quantity: 1 };
     dispatch(addItem(newItem));
   };
 
@@ -50,7 +50,7 @@ const MenuItem = ({ pizza }) => {
 
 MenuItem.propTypes = {
   pizza: PropTypes.shape({
-    pizzaId: PropTypes.number,
+    id: PropTypes.number,
     name: PropTypes.string,
     unitPrice: PropTypes.number,
     imageUrl: PropTypes.string,
