@@ -11,8 +11,9 @@ const MenuItem = ({ pizza }) => {
   const { pizzaId, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
 
   const handleClick = () => {
-    const newItem = { pizzaId, name, unitPrice, quantity: 1 };
+    if (soldOut) return;
 
+    const newItem = { pizzaId, name, unitPrice, quantity: 1 };
     dispatch(addItem(newItem));
   };
 
