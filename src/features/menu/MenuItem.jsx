@@ -3,9 +3,18 @@ import PropTypes from 'prop-types';
 import Button from '../../UI/Button.jsx';
 
 import { formatCurrency } from '../../utils/helpers';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../cart/cartSlice.js';
 
 const MenuItem = ({ pizza }) => {
-  const { name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
+  const dispatch = useDispatch();
+  const { pizzaId, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
+
+  const handleClick = () => {
+    const newItem = { pizzaId, name, unitPrice, quantity: 1 };
+
+    dispatch(addItem(newItem));
+  };
 
   return (
     <li className='flex gap-4 py-2'>
@@ -29,7 +38,9 @@ const MenuItem = ({ pizza }) => {
             </p>
           )}
 
-          <Button type='small'>Add to cart</Button>
+          <Button handleClick={handleClick} type='small'>
+            Add to cart
+          </Button>
         </div>
       </div>
     </li>
@@ -38,7 +49,7 @@ const MenuItem = ({ pizza }) => {
 
 MenuItem.propTypes = {
   pizza: PropTypes.shape({
-    id: PropTypes.number,
+    pizzaId: PropTypes.number,
     name: PropTypes.string,
     unitPrice: PropTypes.number,
     imageUrl: PropTypes.string,
