@@ -6,12 +6,8 @@ import PropTypes from 'prop-types';
 const DeleteButton = ({ pizzaId }) => {
   const dispatch = useDispatch();
 
-  const handleDelete = () => {
-    dispatch(deleteItem(pizzaId));
-  };
-
   return (
-    <Button handleClick={handleDelete} type='small'>
+    <Button handleClick={() => dispatch(deleteItem(pizzaId))} type='small'>
       Delete
     </Button>
   );
