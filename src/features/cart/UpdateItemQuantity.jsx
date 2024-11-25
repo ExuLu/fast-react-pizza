@@ -1,18 +1,13 @@
 import PropTypes from 'prop-types';
 import Button from '../../UI/Button';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  decreaseItemQuantity,
-  getCurrentQuantityById,
-  increaseItemQuantity,
-} from './cartSlice';
+import { useDispatch } from 'react-redux';
+import { decreaseItemQuantity, increaseItemQuantity } from './cartSlice';
 
-const UpdateItemQuantity = ({ pizzaId }) => {
-  const currentQuantity = useSelector(getCurrentQuantityById(pizzaId));
+const UpdateItemQuantity = ({ pizzaId, currentQuantity }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className='flex items-center gap-1 md:gap-3'>
+    <div className='flex items-center gap-2 md:gap-3'>
       <Button
         handleClick={() => dispatch(decreaseItemQuantity(pizzaId))}
         type='round'
@@ -32,6 +27,7 @@ const UpdateItemQuantity = ({ pizzaId }) => {
 
 UpdateItemQuantity.propTypes = {
   pizzaId: PropTypes.number,
+  currentQuantity: PropTypes.number,
 };
 
 export default UpdateItemQuantity;

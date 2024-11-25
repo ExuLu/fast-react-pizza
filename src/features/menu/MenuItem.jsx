@@ -41,7 +41,7 @@ const MenuItem = ({ pizza }) => {
           {ingredients.join(', ')}
         </p>
 
-        <div className='mt-auto flex items-center justify-between'>
+        <div className='mt-auto flex flex-wrap items-center justify-between'>
           {!soldOut ? (
             <p className='text-sm'>{formatCurrency(unitPrice)}</p>
           ) : (
@@ -57,7 +57,10 @@ const MenuItem = ({ pizza }) => {
           )}
           {isInCart && (
             <div className='flex gap-1 md:gap-3'>
-              <UpdateItemQuantity pizzaId={id} />
+              <UpdateItemQuantity
+                pizzaId={id}
+                currentQuantity={currentQuantity}
+              />
               <DeleteButton pizzaId={id} />
             </div>
           )}
