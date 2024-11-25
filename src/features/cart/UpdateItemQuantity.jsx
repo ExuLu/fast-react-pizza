@@ -14,7 +14,7 @@ const UpdateItemQuantity = ({ pizzaId, currentQuantity }) => {
       >
         -
       </Button>
-      <p>{currentQuantity}</p>
+      <p className='text-sm font-medium'>{currentQuantity}</p>
       <Button
         handleClick={() => dispatch(increaseItemQuantity(pizzaId))}
         type='round'

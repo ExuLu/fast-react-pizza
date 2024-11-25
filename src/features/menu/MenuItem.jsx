@@ -56,7 +56,7 @@ const MenuItem = ({ pizza }) => {
             </Button>
           )}
           {isInCart && (
-            <div className='flex gap-1 md:gap-3'>
+            <div className='flex items-center gap-3 sm:gap-8'>
               <UpdateItemQuantity
                 pizzaId={id}
                 currentQuantity={currentQuantity}
