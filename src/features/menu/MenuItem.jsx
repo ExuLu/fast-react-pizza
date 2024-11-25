@@ -25,12 +25,14 @@ const MenuItem = ({ pizza }) => {
     dispatch(addItem(newItem));
   };
 
+  const isInCart = currentQuantity > 0;
+
   return (
     <li className='flex gap-4 py-2'>
       <img
         src={imageUrl}
         alt={name}
-        className={`h-24 ${soldOut ? 'grayscale-70 opacity-70' : ''}`}
+        className={`h-24 ${soldOut ? 'opacity-70 grayscale-70' : ''}`}
       />
       <div className='flex flex-grow flex-col pt-0.5'>
         <p className='font-medium'>{name}</p>
@@ -47,12 +49,12 @@ const MenuItem = ({ pizza }) => {
             </p>
           )}
 
-          {!soldOut && (
+          {!soldOut && !isInCart && (
             <Button handleClick={handleClick} type='small'>
               Add to cart
             </Button>
           )}
-          {currentQuantity && <DeleteButton pizzaId={id} />}
+          {isInCart && <DeleteButton pizzaId={id} />}
         </div>
       </div>
     </li>
