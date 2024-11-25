@@ -1,7 +1,8 @@
 import { useDispatch } from 'react-redux';
-import Button from './Button';
-import { deleteItem } from '../features/cart/cartSlice';
+
 import PropTypes from 'prop-types';
+import Button from '../../UI/Button';
+import { deleteItem } from './cartSlice';
 
 const DeleteButton = ({ pizzaId }) => {
   const dispatch = useDispatch();
