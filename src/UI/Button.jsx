@@ -40,7 +40,7 @@ const Button = ({ children, isDisabled, to, type, handleClick }) => {
 };
 
 Button.propTypes = {
-  children: PropTypes.string || PropTypes.element,
+  children: PropTypes.any,
   isDisabled: PropTypes.bool,
   to: PropTypes.string,
   type: PropTypes.string,
